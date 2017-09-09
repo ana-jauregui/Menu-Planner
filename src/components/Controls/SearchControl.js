@@ -8,7 +8,6 @@ export class SearchControl extends Component {
 
     this.state = {
       recipeSearch: '',
-      searchData: null
     }
   }
 
@@ -21,8 +20,7 @@ export class SearchControl extends Component {
   }
 
   promptRecipeSearch() {
-    console.log('hello');
-      this.props.fetchInitialRecipes(`http://api.yummly.com/v1/api/recipes?_app_id=9a8c8d11&_app_key=acf75735b021b0bc07dcbfd169e21b59&q=${this.state.recipeSearch}`)
+      const recipeSearchResult = this.props.fetchInitialRecipes(`http://api.yummly.com/v1/api/recipes?_app_id=9a8c8d11&_app_key=acf75735b021b0bc07dcbfd169e21b59&q=${this.state.recipeSearch}`)
   }
 
   render() {

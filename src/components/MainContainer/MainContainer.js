@@ -1,25 +1,24 @@
 import React, { Component } from 'react';
-import MainContainerContainer from '../../containers/MainContainerContainer'
+import MainContainerContainer from '../../containers/MainContainerContainer';
+import RecipeSearchDisplay from '../RecipeSearchDisplay/RecipeSearchDisplay';
 
 export class MainContainer extends Component {
 
-  // componentDidMount() {
-  //   this.props.fetchInitialRecipes(`http://api.yummly.com/v1/api/recipes?_app_id=9a8c8d11&_app_key=acf75735b021b0bc07dcbfd169e21b59&q=onion+soup`)
-  // }
 
   render() {
     console.log('mainContainer',this.props);
-    // if(this.props.recipeSearchData !== undefined) {
-    //   const recipes = this.props.recipeSearchData.matches.map((recipe, i) => <div key={i}> {recipe.recipeName} </div>)
+    const recipeSearchResults = this.props.recipeSearchData.recipeSearchData.matches
 
-      return(
-        <div>
-          {/* {recipes} */}
-          MainContainer
-        </div>
-      )
-    // }
-    // const recipes = data.matches.map(recipe => <img alt='' src={ recipe.smallImageUrls } /> )
+    const results = recipeSearchResults.map((recipe, i) => {
+      console.log(recipe)
+      return <RecipeSearchDisplay key={ i } recipeName={recipe.recipeName} image={recipe.smallImageUrls[0]} time={recipe.totalTimeInSeconds} rating={recipe.rating} />
+    })
+
+        return(
+          <div>
+            { results }
+          </div>
+        )
   }
 }
 
