@@ -15,6 +15,23 @@ export const fetchRecipeSearch = (url, dispatch) => {
     .catch(error => console.log(error))
 }
 
+export const recipeSelectDetailSuccess = (recipe, bool) => {
+  return {
+    type: 'RECIPE_SELECT_DETAIL_SUCCESS',
+    recipeDetailData: recipe,
+    recipeDetailRequested: bool
+  }
+}
+
+export const fetchRecipeDetail = (url, dispatch) => {
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      dispatch(recipeSelectDetailSuccess(data))
+    })
+    .catch(error => console.log(error))
+}
+
 
 // export const fetchRecipeSearch = (url) => {
 //   return(dispatch) => {

@@ -1,9 +1,9 @@
-const initialState = {
+const initialRecipeSearchState = {
   recipeSearchData: {},
-  isSearchComplete: false
+  isSearchComplete: false,
 }
 
-export const recipeSearchSuccess = (state = initialState, action) => {
+export const recipeSearchSuccess = (state = initialRecipeSearchState, action) => {
   switch(action.type) {
     case 'RECIPE_SEARCH_SUCCESS':
       return Object.assign({}, state, {recipeSearchData: action.recipeSearchData, isSearchComplete: true})
@@ -11,4 +11,19 @@ export const recipeSearchSuccess = (state = initialState, action) => {
     default:
       return state
     }
+}
+
+const initialRecipeDetailState ={
+  recipeDetailData: {},
+  recipeDetailRequested: false,
+}
+
+export const recipeSelectDetailSuccess = (state = initialRecipeDetailState, action) => {
+  switch(action.type) {
+    case 'RECIPE_SELECT_DETAIL_SUCCESS':
+      return Object.assign({}, state, {recipeDetailData: action.recipeDetailData, recipeDetailRequested: true})
+
+      default:
+        return state
+  }
 }
