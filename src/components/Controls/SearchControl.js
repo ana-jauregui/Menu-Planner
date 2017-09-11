@@ -5,8 +5,8 @@ import MainContainerContainer from '../../containers/MainContainerContainer';
 import './SearchControl.css';
 
 export class SearchControl extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       recipeSearch: '',
