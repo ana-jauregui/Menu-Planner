@@ -1,0 +1,4 @@
+.recipe-search-display-container {
+  display: flex;
+  flex-wrap: wrap;
+}

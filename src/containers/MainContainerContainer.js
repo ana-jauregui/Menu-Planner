@@ -1,16 +1,19 @@
 import { connect } from 'react-redux';
 // import MainContainer from '../components/MainContainer/MainContainer';
-import { fetchRecipeSearch } from '../actions/actions-index';
+import { fetchRecipeSearch, fetchRecipeDetail } from '../actions/actions-index';
 
 const mapStateToProps = (state) => {
   return {
-    recipeSearchData: state.recipeSearchSuccess
+    recipeSearchData: state.recipeSearchSuccess,
+    recipeDetailData: state.recipeSelectDetailSuccess
   }
 }
 
 const mapDispatchToProps = (dispatch) => ({
   fetchInitialRecipes: (url) =>
-    fetchRecipeSearch(url, dispatch)
+    fetchRecipeSearch(url, dispatch),
+  fetchRecipeSearchDetail: (url) =>
+    fetchRecipeDetail(url, dispatch)
 })
 
 // const mapDispatchToProps = (dispatch) => ({
