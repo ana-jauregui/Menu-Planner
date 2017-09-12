@@ -8,7 +8,9 @@ import './MainContainer.css'
 export class MainContainer extends Component {
 
   render() {
-    const recipeSearchResults = this.props.recipeSearchData.recipeSearchData.matches
+console.log('MainContainer', this.props);
+
+    const recipeSearchResults = this.props.recipeSearchData.matches
 
     const results = recipeSearchResults.map((recipe, i) => {
 

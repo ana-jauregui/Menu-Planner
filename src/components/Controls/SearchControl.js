@@ -27,16 +27,10 @@ export class SearchControl extends Component {
 
   render() {
 
-    // if (this.props.recipeSearchData.isSearchComplete) {
-    //   <Redirect to='/recipe-search' />
-    // }
-
     return (
       <div className='main-search'>
         <input type='text' placeholder='Search' onChange={ e => this.userRecipeSearch(e) }/>
-        {/* <Link to={'/recipe-search'}> */}
           <button onClick={ () => (this.promptRecipeSearch()) }>Search</button>
-        {/* </Link> */}
       </div>
     )
   }

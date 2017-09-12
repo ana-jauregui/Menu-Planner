@@ -30,13 +30,13 @@ export class RecipeSearchDisplay extends Component {
     if(this.props.recipeSearchData.isSearchComplete === true && this.props.recipeDetailData.recipeDetailRequested === true) {
       <Redirect to='/recipe-details'/>
 
-      const { name, totalTime, numberOfServings, ingredientLines } = this.props.recipeDetailData.recipeDetailData
-      const image = this.props.recipeDetailData.recipeDetailData.images[0].hostedLargeUrl
-      const sourceUrl = this.props.recipeDetailData.recipeDetailData.source.sourceRecipeUrl
+      const { name, totalTime, numberOfServings, ingredientLines } = this.props.recipeDetailData
+      const image = this.props.recipeDetailData.images[0].hostedLargeUrl
+      const sourceUrl = this.props.recipeDetailData.source.sourceRecipeUrl
       const ingredients = ingredientLines.map((ingredient, i) => <ul key={i}><li>{ingredient}</li></ul>)
 
       return(
-        <div>{this.props.recipeId === this.props.recipeDetailData.recipeDetailData.id ? <div><div>
+        <div>{this.props.recipeId === this.props.recipeDetailData.id ? <div><div>
         <p>{name}</p>
         <img src={image} />
         <button onClick={() => window.open(sourceUrl)}>View Instructions</button>
