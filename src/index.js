@@ -8,13 +8,15 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers/index-reducers';
 import App from './App';
+import Main from './components/Main/Main';
+import FullDetailDisplay from './components/FullDetailDisplay/FullDetailDisplay';
+import RecipeSearchDisplay from './components/RecipeSearchDisplay/RecipeSearchDisplay';
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 
 const history = createHistory()
-
 
 const store = createStore(
   rootReducer,
@@ -25,7 +27,7 @@ const store = createStore(
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <Route path='/' component={App}/>
+      <App />
     </ConnectedRouter>
   </Provider>,
   document.getElementById('root')

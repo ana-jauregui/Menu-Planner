@@ -30,9 +30,9 @@ export class SearchControl extends Component {
     return (
       <div className='main-search'>
         <input type='text' placeholder='Search' onChange={ e => this.userRecipeSearch(e) }/>
-        {/* <Link to={'/recipe-search'}> */}
+        <Link to={'/recipe-search'}>
           <button onClick={ () => (this.promptRecipeSearch()) }>Search</button>
-        {/* </Link> */}
+        </Link>
       </div>
     )
   }

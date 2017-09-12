@@ -15,11 +15,8 @@ class App extends Component {
     return (
       <div className="App">
 
-          <Header />
-          <SearchControl />
-          {/* <MainContainer /> */}
-          <Route exact path='/' component={Main} />
-          {/* {this.props.recipeSearchData.isSearchComplete && <MainContainer /> } */}
+          {this.props.recipeSearchData && <Route path='/' component={Main} />}
+          {/* {this.props.recipeSearchData.isSearchComplete && <MainContainer />} */}
 
       </div>
     );
