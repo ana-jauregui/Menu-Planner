@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 // import { Redirect } from 'react-router-dom';
+
+import { Link } from 'react-router-dom';
+
 import MainContainerContainer from '../../containers/MainContainerContainer';
+import FullRecipeInformation from '../FullRecipeInformation/FullRecipeInformation';
 import './RecipeSearchDisplay.css';
 
 export class RecipeSearchDisplay extends Component {
@@ -13,21 +17,22 @@ export class RecipeSearchDisplay extends Component {
   }
 
   render() {
-    // console.log('recipeSearchDisplay', this.props);
 
-    if(this.props.recipeSearchData.isSearchComplete === true && this.props.recipeDetailData.recipeDetailRequested === false) {
+    // if(this.props.recipeSearchData.isSearchComplete === true && this.props.recipeDetailData.recipeDetailRequested === false) {
 
       const { recipeId ,recipeName, image, time, rating } = this.props
 
       return(
-        <div onClick={() => this.viewRecipeDetail(recipeId)}>
-          <p>{ recipeName }</p>
-          <img src={ image }/>
-          <p>{`Rating: ${rating}`}</p>
-          <p>{`Cook Time: ${time/60} min`}</p>
-        </div>
+        <Link to='/recipe-details' >
+          <div onClick={() => this.viewRecipeDetail(recipeId)}>
+            <p>{ recipeName }</p>
+            <img src={ image }/>
+            <p>{`Rating: ${rating}`}</p>
+            <p>{`Cook Time: ${time/60} min`}</p>
+          </div>
+        </Link>
       )
-    }
+    // }
 
     if(this.props.recipeSearchData.isSearchComplete === true && this.props.recipeDetailData.recipeDetailRequested === true) {
         // <Redirect to='/recipe-details'/>
@@ -48,7 +53,6 @@ export class RecipeSearchDisplay extends Component {
        </div>{ingredients}</div>: null}</div>
       )
     }
-
   }
 }
 
