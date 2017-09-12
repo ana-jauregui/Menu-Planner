@@ -9,23 +9,17 @@ import './MainContainer.css'
 export class MainContainer extends Component {
 
   render() {
-    return (
-      <div>
-        main container...
-      </div>
-    )
 console.log(this.props);
 
     const recipeSearchResults = this.props.recipeSearchData.recipeSearchData.matches
 
-    if(this.props.recipeSearchData.isSearchComplete) {
-      const results = recipeSearchResults.map((recipe, i) => {
+    const results = recipeSearchResults.map((recipe, i) => {
 
         return <RecipeSearchDisplay key={ i } recipeId={recipe.id} recipeName={recipe.recipeName} image={recipe.smallImageUrls[0]} time={recipe.totalTimeInSeconds} rating={recipe.rating} />
       })
 
 
-    if(this.props.recipeSearchData.isSearchComplete) {
+    // if(this.props.recipeSearchData.isSearchComplete) {
       // <Redirect to='/recipe-search' />
 
       return(
@@ -34,7 +28,7 @@ console.log(this.props);
         </div>
       )
 
-    }
+    // }
 
     // if(this.props.recipeSearchData.isSearchComplete) {
     //   <Redirect to='/recipe-search' />
@@ -60,7 +54,7 @@ console.log(this.props);
         //   <p>Number of Servings: {numberOfServings}</p>
         // </div>{ingredients}</div>: null}</div>
     //   )
-    // }
+
 
   }
 }

@@ -19,8 +19,8 @@ class App extends Component {
 
           <Header />
           <SearchControl />
-          <Route exact path='/' component={MainContainer} />
-          {/* {this.props.recipeSearchData.isSearchComplete && <MainContainer /> } */}
+          {/* <Route exact path='/' component={MainContainer} /> */}
+          {this.props.recipeSearchData.isSearchComplete && <MainContainer /> }
           <Route exact path='/recipe-search' component={RecipeSearchDisplay} />
           <Route exact path='/recipe-details' component={FullRecipeInformation} />
 
