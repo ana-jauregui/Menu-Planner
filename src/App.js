@@ -12,15 +12,15 @@ class App extends Component {
 
 
   render() {
-// console.log(this.props);
+
     return (
       <div className="App">
 
           <Header />
           <SearchControl />
-          {/* <MainContainer /> */}
           {/* <Route exact path='/recipe-search' component={MainContainer} /> */}
           {this.props.recipeSearchData.isSearchComplete && <MainContainer /> }
+          {/* <Route exact path='/recipe-search' component={MainContainer} /> */}
       </div>
     );
   }

@@ -5,8 +5,8 @@ import MainContainerContainer from '../../containers/MainContainerContainer';
 import './SearchControl.css';
 
 export class SearchControl extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       recipeSearch: '',
@@ -34,9 +34,9 @@ export class SearchControl extends Component {
     return (
       <div className='main-search'>
         <input type='text' placeholder='Search' onChange={ e => this.userRecipeSearch(e) }/>
-        <Link to={'/recipe-search'}>
+        {/* <Link to={'/recipe-search'}> */}
           <button onClick={ () => (this.promptRecipeSearch()) }>Search</button>
-        </Link>
+        {/* </Link> */}
       </div>
     )
   }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import MainContainerContainer from '../../containers/MainContainerContainer';
 import './RecipeSearchDisplay.css';
 
@@ -13,8 +13,6 @@ export class RecipeSearchDisplay extends Component {
   }
 
   render() {
-    // console.log('recipeSearchDisplay', this.props);
-
     if(this.props.recipeSearchData.isSearchComplete === true && this.props.recipeDetailData.recipeDetailRequested === false) {
 
       const { recipeId ,recipeName, image, time, rating } = this.props
@@ -30,14 +28,13 @@ export class RecipeSearchDisplay extends Component {
     }
 
     if(this.props.recipeSearchData.isSearchComplete === true && this.props.recipeDetailData.recipeDetailRequested === true) {
-        // <Redirect to='/recipe-details'/>
+      <Redirect to='/recipe-details'/>
 
       const { name, totalTime, numberOfServings, ingredientLines } = this.props.recipeDetailData.recipeDetailData
       const image = this.props.recipeDetailData.recipeDetailData.images[0].hostedLargeUrl
       const sourceUrl = this.props.recipeDetailData.recipeDetailData.source.sourceRecipeUrl
       const ingredients = ingredientLines.map((ingredient, i) => <ul key={i}><li>{ingredient}</li></ul>)
 
-      console.log(this.props.recipeDetailData.recipeDetailData);
       return(
         <div>{this.props.recipeId === this.props.recipeDetailData.recipeDetailData.id ? <div><div>
         <p>{name}</p>
@@ -48,7 +45,6 @@ export class RecipeSearchDisplay extends Component {
        </div>{ingredients}</div>: null}</div>
       )
     }
-
   }
 }
 
