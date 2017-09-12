@@ -24,11 +24,16 @@ console.log(this.props);
         return <RecipeSearchDisplay key={ i } recipeId={recipe.id} recipeName={recipe.recipeName} image={recipe.smallImageUrls[0]} time={recipe.totalTimeInSeconds} rating={recipe.rating} />
       })
 
+
+    if(this.props.recipeSearchData.isSearchComplete) {
+      // <Redirect to='/recipe-search' />
+
       return(
         <div className='recipe-search-display-container'>
           { results }
         </div>
       )
+
     }
 
     // if(this.props.recipeSearchData.isSearchComplete) {

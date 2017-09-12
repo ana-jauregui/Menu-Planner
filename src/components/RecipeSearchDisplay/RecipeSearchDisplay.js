@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 // import { Redirect } from 'react-router-dom';
+
 import { Link } from 'react-router-dom';
+
 import MainContainerContainer from '../../containers/MainContainerContainer';
 import FullRecipeInformation from '../FullRecipeInformation/FullRecipeInformation';
 import './RecipeSearchDisplay.css';
