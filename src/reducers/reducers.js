@@ -16,12 +16,13 @@ export const recipeSearchSuccess = (state = initialRecipeSearchState, action) =>
 const initialRecipeDetailState ={
   recipeDetailData: {},
   recipeDetailRequested: false,
+  isSearchComplete: true
 }
 
 export const recipeSelectDetailSuccess = (state = initialRecipeDetailState, action) => {
   switch(action.type) {
     case 'RECIPE_SELECT_DETAIL_SUCCESS':
-      return Object.assign({}, state, {recipeDetailData: action.recipeDetailData, recipeDetailRequested: true})
+      return Object.assign({}, state, {recipeDetailData: action.recipeDetailData, recipeDetailRequested: true, isSearchComplete: false})
 
       default:
         return state
