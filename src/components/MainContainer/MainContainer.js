@@ -16,7 +16,7 @@ export class MainContainer extends Component {
     })
 
     if(this.props.recipeSearchData.isSearchComplete) {
-      <Redirect to='/recipe-search' />
+      // <Redirect to='/recipe-search' />
     }
 
     return(
