@@ -26,9 +26,10 @@ export const recipeSelectDetailSuccess = (recipe, bool) => {
 export const fetchRecipeDetail = (url, dispatch) => {
   fetch(url)
     .then(response => response.json())
-    .then(data => {
-      dispatch(recipeSelectDetailSuccess(data))
-    })
+    .then(data => console.log(data))
+    // .then(data => {
+    //   dispatch(recipeSelectDetailSuccess(data))
+    // })
     .catch(error => console.log(error))
 }
 

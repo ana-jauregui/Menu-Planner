@@ -5,8 +5,8 @@ import MainContainerContainer from '../../containers/MainContainerContainer';
 import './SearchControl.css';
 
 export class SearchControl extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       recipeSearch: '',
@@ -26,10 +26,6 @@ export class SearchControl extends Component {
   }
 
   render() {
-
-    // if (this.props.recipeSearchData.isSearchComplete) {
-    //   <Redirect to='/recipe-search' />
-    // }
 
     return (
       <div className='main-search'>
