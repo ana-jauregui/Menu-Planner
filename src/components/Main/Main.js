@@ -9,82 +9,38 @@ import './Main.css'
 
 
 export class Main extends Component {
-  constructor() {
-    super();
 
-    this.state = {
-      isloading: false
-    }
-  }
-
-  // componentDidMount() {
-  //
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   console.log('SCU',nextProps, nextState);
+  //   return nextProps.recipeSearchData !== null
   // }
 
-  shouldComponentUpdate(nextState, nextProps) {
-    console.log('shouldComponentUpdate', nextState, nextProps);
-    return nextProps.recipeSearchData !== this.props.recipeSearchData
-  }
-
   render() {
-console.log('Main', this.props);
+// console.log('main',this.props);
 
-const simpleDisplay = (
-  <div>
-    <Header />
-    <SearchControl />
-    I AM THE MAIN CONTAINER
-  </div>
-)
+    if(this.props.recipeSearchData.isSearchComplete || this.props.recipeSearchData.isLoading === false) {
+      const recipeSearchResults = this.props.recipeSearchData.matches
 
-// const recipeSearchResults = this.props.recipeSearchData.matches
-//
-// const results = recipeSearchResults.map((recipe, i) => {
-//
-//   return <RecipeSearchDisplay key={ i } recipeId={recipe.id} recipeName={recipe.recipeName} image={recipe.smallImageUrls[0]} time={recipe.totalTimeInSeconds} rating={recipe.rating} />
-// })
+      const results = recipeSearchResults.map((recipe, i) => {
 
-const recipeSearch = (
-  <div className='recipe-search-display-container'>
-     <Header />
-     <SearchControl />
-    Stuff
-   </div>
-)
+        return(
+          <RecipeSearchDisplay key={ i } recipeId={recipe.id} recipeName={recipe.recipeName} image={recipe.smallImageUrls[0]} time={recipe.totalTimeInSeconds} rating={recipe.rating} />
+        )
+      })
 
-return(
-  <div>
-    {this.props.recipeSearchData ? simpleDisplay : recipeSearch }
-  </div>
-)
+      return(
+        <div className='recipe-search-display-container'>
+          { results }
+        </div>
+      )
+    }
 
-    // const recipeSearchResults = this.props.recipeSearchData.matches
-    //
-    // const results = recipeSearchResults.map((recipe, i) => {
-    //
-    //   return <RecipeSearchDisplay key={ i } recipeId={recipe.id} recipeName={recipe.recipeName} image={recipe.smallImageUrls[0]} time={recipe.totalTimeInSeconds} rating={recipe.rating} />
-    // })
-    //
-    // if(this.props.recipeSearchData.isSearchComplete) {
-    // }
-    //
-    // return(
-    //   <div className='recipe-search-display-container'>
-    //     <Header />
-    //     <SearchControl />
-    //     { results }
-    //   </div>
-    // )
-
-  // return(
-  //   <div>
-  //     <Header />
-  //     <SearchControl />
-  //     THIS IS THE MAIN CONTAINER
-  //     <Route path='/recipe-search' component={RecipeSearchDisplay} />
-  //     <Route path='/recipe-details' component={RecipeDetailDisplay} />
-  //   </div>
-  // )
+    return(
+      <div>
+        {/* <Route exact path='/recipe-search' component={RecipeSearchDisplay} /> */}
+        {/* <Route exact path='/:recipeId' component={RecipeDetailDisplay} /> */}
+      </div>
+    )
 
   }
 }

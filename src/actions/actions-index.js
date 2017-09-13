@@ -2,6 +2,7 @@ export const recipeSearchSuccess = (recipes, bool) => {
   return {
     type: 'RECIPE_SEARCH_SUCCESS',
     recipeSearchData: recipes,
+    isLoading: bool,
     isSearchComplete: bool
   }
 }

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-// import MainContainer from '../components/MainContainer/MainContainer';
+import { push } from 'react-router-redux';
 import { fetchRecipeSearch, fetchRecipeDetail } from '../actions/actions-index';
 
 const mapStateToProps = (state) => {
@@ -12,12 +12,13 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
   fetchInitialRecipes: (url) =>
     fetchRecipeSearch(url, dispatch),
-  fetchRecipeSearchDetail: (url) =>
-    fetchRecipeDetail(url, dispatch)
-})
 
-// const mapDispatchToProps = (dispatch) => ({
-//   fetchInitialRecipes: (url) => dispatch(fetchRecipeSearch(url))
-// })
+  fetchRecipeSearchDetail: (url) =>
+    fetchRecipeDetail(url, dispatch),
+
+  changeRoute: (url) => {
+    dispatch(push(url))
+  }
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)

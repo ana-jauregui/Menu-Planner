@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import MainContainerContainer from '../../containers/MainContainerContainer';
 import './SearchControl.css';
@@ -30,7 +29,9 @@ export class SearchControl extends Component {
     return (
       <div className='main-search'>
         <input type='text' placeholder='Search' onChange={ e => this.userRecipeSearch(e) }/>
-          <button onClick={ () => (this.promptRecipeSearch()) }>Search</button>
+          <Link to='/recipe-search'>
+            <button onClick={ () => (this.promptRecipeSearch(), this.props.changeRoute('/recipe-search')) }>Search</button>
+          </Link>
       </div>
     )
   }

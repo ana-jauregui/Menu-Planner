@@ -2,15 +2,14 @@ import React from 'react'
 import { Route } from 'react-router';
 import { ConnectedRouter } from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
+import App from '../App';
 import Main from '../components/Main/Main';
-// import RecipeDetailDisplay from '../components/RecipeDetailDisplay/RecipeDetailDisplay';
-// import RecipeSearchDisplay from '../components/RecipeSearchDisplay/RecipeSearchDisplay';
 
 const history = createHistory()
 
 const routes = (
   <ConnectedRouter history={history}>
-    <Route path='/' component={Main}/>
+    <Route path='/' component={App}/>
   </ConnectedRouter>
 )
 

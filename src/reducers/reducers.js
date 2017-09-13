@@ -1,15 +1,16 @@
 const initialRecipeSearchState = {
-  recipeSearchData: {},
+  recipeSearchData: null,
   isSearchComplete: false,
+  isLoading: true
 }
 
 export const recipeSearchSuccess = (state = initialRecipeSearchState, action) => {
   switch(action.type) {
     case 'RECIPE_SEARCH_SUCCESS':
       return {
-        ...state,
         ...action.recipeSearchData,
-        isSearchComplete: true
+        isSearchComplete: true,
+        isLoading: false
       }
 
     default:
@@ -18,7 +19,7 @@ export const recipeSearchSuccess = (state = initialRecipeSearchState, action) =>
 }
 
 const initialRecipeDetailState ={
-  recipeDetailData: {},
+  recipeDetailData: null,
   recipeDetailRequested: false,
   isSearchComplete: true
 }
@@ -27,7 +28,6 @@ export const recipeSelectDetailSuccess = (state = initialRecipeDetailState, acti
   switch(action.type) {
     case 'RECIPE_SELECT_DETAIL_SUCCESS':
       return {
-        ...state,
         ...action.recipeDetailData,
         recipeDetailRequested: true,
         isSearchComplete: false
